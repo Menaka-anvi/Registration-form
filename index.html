@@ -55,10 +55,11 @@
                 <div id="showmessage"></div>
                 <h5 class="text-center bg-white text-dark p-2">View Details</h5>
 
-                <form class="d-flex gap-2 mb-3" role="search" id="searchForm">
+                <div class="d-flex gap-2 mb-3">
                     <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                    <button class="btn btn-outline-success" type="submit" form="searchForm">Search</button>
+                </div>
+                <form id="searchForm"></form>
 
                 <table class="table table-success">
                     <thead>
