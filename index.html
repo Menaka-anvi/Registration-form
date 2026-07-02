@@ -46,7 +46,6 @@
                         <div class="invalid-feedback">Password does not meet requirements.</div>
                     </div>
 
-
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
@@ -59,8 +58,8 @@
                 <div class="row">
                     <div class="col-md-7"></div>
                     <div class="col-md-5">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <form class="d-flex" role="search" id="searchForm">
+                            <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search" />
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
@@ -73,14 +72,10 @@
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-
                         </tr>
                     </thead>
-                    <tbody id="tableBody">
-
-                    </tbody>
+                    <tbody id="tableBody"></tbody>
                 </table>
-
             </div>
         </div>
     </div>
