@@ -108,13 +108,10 @@ function memberFormSubmit(e) {
     display.clear();
     display.show("success", "Registration successful");
   } else {
-<<<<<<< HEAD
     display.show(
       "danger",
       "Please correct the highlighted");
-=======
     display.show("danger", "Please correct the highlighted");
->>>>>>> 8b82a88 (Update index.html script.js scriptes6.js with search fixes)
     display.clear();
   }
 }
