@@ -11,12 +11,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-        #searchForm {
-            width: 300px !important;
-            flex-shrink: 0 !important;
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
         }
-        #searchInput {
-            flex: 1 !important;
+        .search-container input {
+            width: 200px;
+        }
+        .search-container button {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -64,12 +69,11 @@
                 <div id="showmessage"></div>
                 <h5 class="text-center bg-white text-dark p-2">View Details</h5>
 
-                <div class="d-flex justify-content-end gap-2 mb-3">
-                    <form class="d-flex gap-2" role="search" id="searchForm">
-                        <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                <div class="search-container">
+                    <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" form="searchForm">Search</button>
                 </div>
+                <form id="searchForm"></form>
 
                 <table class="table table-success">
                     <thead>
