@@ -49,14 +49,14 @@ Display.prototype.clear = function () {
 
 Display.prototype.add = function (member) {
   let tableBody = document.getElementById("tableBody");
-  let uilist = `<tr>
+  let row = `<tr>
     <td>${member.name}</td>
     <td>${member.email}</td>
     <td>${member.password}</td>
     
     </tr>
     `;
-  tableBody.innerHTML += uilist;
+  tableBody.innerHTML += row;
 };
 
 Display.prototype.show = function (type, displayMessage) {
@@ -70,8 +70,23 @@ ${displayMessage}
   }, 3000);
 };
 
+// search method
+Display.prototype.search = function () {
+  let filter = document.getElementById("searchInput").value.toLowerCase();
+  let rows = document.querySelectorAll("#tableBody tr");
+
+  rows.forEach((row) => {
+    let text = row.textContent.toLowerCase();
+    if (text.includes(filter)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+};
+
 //main function
-let memberform = document.getElementById("registration form");
+let memberform = document.getElementById("registrationForm");
 memberform.addEventListener("submit", memberFormSubmit);
 
 function memberFormSubmit(e) {
@@ -95,8 +110,13 @@ function memberFormSubmit(e) {
   } else {
     display.show(
       "danger",
-      "Please correct the highlighted",
-    );
+      "Please correct the highlighted");
     display.clear();
   }
 }
+
+document.getElementById("searchForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  let display = new Display();
+  display.search();
+});
