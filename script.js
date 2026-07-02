@@ -53,8 +53,6 @@ Display.prototype.add = function (member) {
   let row = `<tr>
     <td>${member.name}</td>
     <td>${member.email}</td>
-  
-    
     </tr>
     `;
   tableBody.innerHTML += row;
@@ -118,6 +116,11 @@ function memberFormSubmit(e) {
 
 document.getElementById("searchForm").addEventListener("submit", function (e) {
   e.preventDefault();
+  let display = new Display();
+  display.search();
+});
+
+document.getElementById("searchInput").addEventListener("input", function () {
   let display = new Display();
   display.search();
 });
