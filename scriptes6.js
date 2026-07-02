@@ -18,7 +18,6 @@ class Display {
   }
 
   clear() {
-    let memberform = document.getElementById("registration form");
     let memberform = document.getElementById("registrationForm");
     memberform.reset();
   }
