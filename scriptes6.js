@@ -13,7 +13,6 @@ class Display {
     let row = `<tr>
     <td>${member.name}</td>
     <td>${member.email}</td>
-
     </tr>
     `;
     tableBody.innerHTML += row;
@@ -21,7 +20,7 @@ class Display {
 
   clear() {
     let memberform = document.getElementById("registration form");
-    guviform.reset();
+    memberform.reset();
   }
 
   validate(member) {
@@ -37,7 +36,7 @@ class Display {
 
         // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(guvi.email)) {
+    if (!emailPattern.test(member.email)) {
       document.getElementById("email").classList.add("is-invalid");
       valid = false;
     } else {
@@ -46,7 +45,7 @@ class Display {
 
     // Password validation
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-    if (!passwordPattern.test(guvi.password)) {
+    if (!passwordPattern.test(member.password)) {
       document.getElementById("password").classList.add("is-invalid");
       valid = false;
     } else {
@@ -67,8 +66,8 @@ ${displayMessage}
   }
 }
 
-let memberform = document.getElementById("registration form");
-memberform.addEventListener("submit", guviFormSubmit);
+let memberform = document.getElementById("registrationForm");
+memberform.addEventListener("submit", memberFormSubmit);
 
 function memberFormSubmit(e) {
   e.preventDefault();
@@ -79,7 +78,7 @@ function memberFormSubmit(e) {
   let password = document.getElementById("password").value;
 
 
-  let data = new member(name, email, password);
+  let data = new Member(name, email, password);
   console.log(data);
 
   let display = new Display();
@@ -91,8 +90,7 @@ function memberFormSubmit(e) {
   } else {
     display.show(
       "danger",
-      "Please correct the highlighted errors",
-    );
+      "Please correct the highlighted errors");
     display.clear();
   }
 }
