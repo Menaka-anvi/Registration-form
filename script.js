@@ -1,7 +1,7 @@
 function Member(name, email, password) {
   this.name = name;
   this.email = email;
-  this.password=password
+  this.password = password;
 }
 
 //Display class
@@ -9,7 +9,7 @@ function Display() {}
 
 //add the method to validate the prototype
 Display.prototype.validate = function (member) {
-   let valid = true;
+  let valid = true;
 
   // Name validation
   if (member.name.length < 2) {
@@ -29,7 +29,8 @@ Display.prototype.validate = function (member) {
   }
 
   // Password validation
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
   if (!passwordPattern.test(member.password)) {
     document.getElementById("password").classList.add("is-invalid");
     valid = false;
@@ -44,7 +45,7 @@ Display.prototype.validate = function (member) {
 Display.prototype.clear = function () {
   let memberform = document.getElementById("registrationForm");
   memberform.reset();
-  document.querySelectorAll(".form-control").forEach(el => el.classList.remove("is-invalid"));
+  document.querySelectorAll(".form-control").forEach((el) => el.classList.remove("is-invalid"));
 };
 
 Display.prototype.add = function (member) {
@@ -52,7 +53,7 @@ Display.prototype.add = function (member) {
   let row = `<tr>
     <td>${member.name}</td>
     <td>${member.email}</td>
-    <td>${member.password}</td>
+  
     
     </tr>
     `;
@@ -96,7 +97,6 @@ function memberFormSubmit(e) {
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
-  
 
   let data = new Member(name, email, password);
   console.log(data);
@@ -108,9 +108,13 @@ function memberFormSubmit(e) {
     display.clear();
     display.show("success", "Registration successful");
   } else {
+<<<<<<< HEAD
     display.show(
       "danger",
       "Please correct the highlighted");
+=======
+    display.show("danger", "Please correct the highlighted");
+>>>>>>> 8b82a88 (Update index.html script.js scriptes6.js with search fixes)
     display.clear();
   }
 }
